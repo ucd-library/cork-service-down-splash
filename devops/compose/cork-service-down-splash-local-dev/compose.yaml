@@ -1,0 +1,18 @@
+x-variables:
+  main-image: &main-image localhost/local-dev/cork-service-down-splash:local-dev
+services:
+  app:
+    image: *main-image
+    env_file:
+      - .env
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      APP_CONFIG_PATH: ${APP_CONFIG_PATH:-/cork-service-down-splash/config.js}
+    volumes:
+      - ../../../package.json:/cork-service-down-splash/package.json
+      - ../../../package-lock.json:/cork-service-down-splash/package-lock.json
+      - ../../../src:/cork-service-down-splash/src
+      - ./cork-app-down-splash-config.js:/cork-service-down-splash/config.js
+    ports:
+      - ${APP_HOST_PORT:-3000}:${APP_CONTAINER_PORT:-3000}
+    command: bash -c "tail -f /dev/null"
