@@ -6,7 +6,13 @@ Application that displays a styled splash page for when a service is down.
 
 ## Usage 
 
-Just use the image.
+Use the prebuilt image and map to your host port:
+```yaml
+app:
+  image: us-west1-docker.pkg.dev/digital-ucdavis-edu/pub/cork-service-down-splash:v1.0.0
+  ports:
+    - 3000:3000
+```
 
 ### Configuration
 The `APP_CONFIG_PATH` environmental variable maps to a configuration file in the container. Bind a volume to this location to control the look and behavior of the splash page.

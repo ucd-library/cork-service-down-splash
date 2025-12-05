@@ -1,5 +1,6 @@
 x-variables:
-  main-image: &main-image us-west1-docker.pkg.dev/digital-ucdavis-edu/pub/cork-service-down-splash:main
+  # main-image: &main-image us-west1-docker.pkg.dev/digital-ucdavis-edu/pub/cork-service-down-splash:main
+  main-image: &main-image localhost/local-dev/cork-service-down-splash:local-dev
 services:
   app:
     image: *main-image
