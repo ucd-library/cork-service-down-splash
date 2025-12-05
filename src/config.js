@@ -1,4 +1,4 @@
-import fs, { stat } from 'fs';
+import fs from 'fs';
 import { pathToFileURL } from 'url';
 
 const config = {

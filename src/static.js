@@ -2,6 +2,8 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import spaMiddleware from '@ucd-lib/spa-router-middleware';
 import config from './config.js';
+import './corkBuild.js';
+import corkBuild from './corkBuild.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -13,8 +15,7 @@ export default (app) => {
 
   if ( !config.isDevEnv ) {
     jsEnvPath = 'dist';
-
-    // todo: update bundleVersion to pull from cork-app-build manifest
+    bundleVersion = corkBuild.version || bundleVersion;
   }
 
   spaMiddleware({

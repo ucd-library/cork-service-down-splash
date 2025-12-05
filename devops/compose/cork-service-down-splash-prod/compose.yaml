@@ -1,0 +1,9 @@
+x-variables:
+  main-image: &main-image us-west1-docker.pkg.dev/digital-ucdavis-edu/pub/cork-service-down-splash:main
+services:
+  app:
+    image: *main-image
+    env_file:
+      - .env
+    ports:
+      - ${APP_HOST_PORT:-3000}:${APP_CONTAINER_PORT:-3000}
